@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: research-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: research-frontend
+  template:
+    metadata:
+      labels:
+        app: research-frontend
+    spec:
+      containers:
+        - name: research-frontend
+          image: research-frontend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
